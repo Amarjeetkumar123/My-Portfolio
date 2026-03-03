@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import About from "./components/About";
 import Blogs from "./components/Blog";
 import Contact from "./components/Contact";
@@ -8,6 +9,10 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 
 export default function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="app-shell">
       <Header />
