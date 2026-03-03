@@ -7,8 +7,8 @@ export default function Hero() {
   const texts = useMemo(
     () => [
       `Hi! I am ${profile.name}`,
-      profile.role,
-      "Building Scalable AI + Web Systems",
+      "<ButLovesToCodeMore/>",
+      "<Always-Learning-Every-Day/>",
     ],
     []
   );
@@ -66,11 +66,11 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="absolute left-1/2 top-1/2 z-20 w-full max-w-5xl -translate-x-1/2 translate-y-[var(--hero-content-offset)] px-4">
-          <p className="pb-2 text-xs uppercase tracking-[0.32em] text-gray-500 md:text-sm">
-            {profile.experience} · {profile.location}
+        <div className="absolute left-1/2 top-1/2 z-20 w-full max-w-5xl -translate-x-1/2 translate-y-[calc(var(--hero-content-offset)-40px)] px-4">
+          <p className="pb-2 text-xs uppercase tracking-[1em] text-gray-500 md:text-sm">
+            {profile.role}
           </p>
-          <h1 className="mx-auto max-w-[24ch] text-3xl font-semibold leading-tight break-words md:text-5xl lg:text-6xl">
+          <h1 className="mx-auto max-w-none whitespace-nowrap text-[clamp(0.95rem,4.2vw,1.875rem)] font-semibold leading-tight md:text-5xl lg:text-6xl">
             {displayed}
             <span className="animate-blink">|</span>
           </h1>

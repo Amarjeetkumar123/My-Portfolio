@@ -8,7 +8,7 @@
   --muted: #9aa1a6;
   --gold: #c9a33a;
   --gold-strong: #f4b000;
-  --hero-content-offset: clamp(180px, 24vh, 280px);
+  --hero-content-offset: clamp(108px, 16vh, 208px);
 }
 
 html,
