@@ -75,12 +75,12 @@ export default function Hero() {
             <span className="animate-blink">|</span>
           </h1>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href={profile.resumeUrl} target="_blank" rel="noreferrer" className="accent-btn min-w-44">
+          <div className="mt-12  pt-5 flex flex-col items-center justify-center gap-5 sm:mt-14 sm:flex-row sm:gap-8">
+            <a href={profile.resumeUrl} target="_blank" rel="noreferrer" className="accent-btn min-w-44 mx-7">
               <Download className="h-4 w-4" />
               View Resume
             </a>
-            <a href="#contact" className="ghost-btn min-w-44">
+            <a href="#contact" className="ghost-btn min-w-44 mx-7">
               <MessageCircle className="h-4 w-4" />
               Let&apos;s Connect
             </a>
