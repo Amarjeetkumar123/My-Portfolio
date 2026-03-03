@@ -86,6 +86,27 @@ export const skillGroups = [
   },
 ];
 
+export const skills = [
+  { name: "JavaScript", icon: "Code2", detail: "App logic and browser runtime" },
+  { name: "TypeScript", icon: "FileCode2", detail: "Type-safe scalable codebases" },
+  { name: "Python", icon: "FileJson", detail: "Automation and AI pipelines" },
+  { name: "Node.js", icon: "Server", detail: "High-throughput backend services" },
+  { name: "Express.js", icon: "Route", detail: "RESTful API architecture" },
+  { name: "React.js", icon: "PanelsTopLeft", detail: "Modern interactive frontends" },
+  { name: "Tailwind CSS", icon: "Paintbrush", detail: "Utility-first UI systems" },
+  { name: "LangChain", icon: "BrainCircuit", detail: "Agent orchestration" },
+  { name: "RAG", icon: "BookOpenCheck", detail: "Context-aware AI responses" },
+  { name: "LLM Apps", icon: "Bot", detail: "Prompt and workflow engineering" },
+  { name: "MongoDB", icon: "Database", detail: "Document-store data modeling" },
+  { name: "PostgreSQL", icon: "TableProperties", detail: "Relational data integrity" },
+  { name: "Redis", icon: "Zap", detail: "Caching and fast state access" },
+  { name: "Docker", icon: "Container", detail: "Portable runtime environments" },
+  { name: "Git / GitHub", icon: "GitBranch", detail: "Version control workflows" },
+  { name: "REST APIs", icon: "Waypoints", detail: "Clean service contracts" },
+  { name: "WebSockets", icon: "RadioTower", detail: "Real-time communication" },
+  { name: "Linux", icon: "TerminalSquare", detail: "Server operations and tooling" },
+];
+
 export const projects = [
   {
     title: "Netflix Clone - Full Stack Streaming Platform",
