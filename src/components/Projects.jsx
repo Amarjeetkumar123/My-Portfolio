@@ -8,7 +8,7 @@ export default function Projects() {
   return (
     <section id="projects" className="section-shell">
       <Motion.div
-        className="container-shell space-y-10"
+        className="container-shell space-y-12"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
@@ -19,15 +19,15 @@ export default function Projects() {
           Selected work spanning streaming platforms, e-commerce systems, and AI-powered business products.
         </Motion.p>
 
-        <Motion.div variants={fadeUp} className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <Motion.div variants={fadeUp} className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project) => (
-            <article key={project.title} className="glass-card flex h-full flex-col overflow-hidden">
-              <div className="h-1 w-full bg-gradient-to-r from-[var(--gold)] via-[#ffe08a] to-[var(--gold-strong)]" />
-              <div className="flex flex-1 flex-col p-6">
-                <h3 className="text-lg font-semibold text-white">{project.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-7 text-gray-300">{project.desc}</p>
+            <article key={project.title} className="glass-card flex h-full flex-col overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-[rgba(201,163,58,0.45)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.45)]">
+              <div className="h-1.5 w-full bg-gradient-to-r from-[var(--gold)] via-[#ffe08a] to-[var(--gold-strong)]" />
+              <div className="flex flex-1 flex-col p-7">
+                <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                <p className="mt-4 flex-1 text-sm leading-7 text-gray-300">{project.desc}</p>
 
-                <div className="mt-5 flex flex-wrap gap-2">
+                <div className="mt-6 flex flex-wrap gap-2.5">
                   {project.tech.map((tech) => (
                     <span key={tech} className="chip">
                       {tech}
@@ -35,7 +35,7 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="mt-6 flex flex-wrap gap-3">
+                <div className="mt-7 flex flex-wrap gap-4">
                   <a href={project.live} target="_blank" rel="noreferrer" className="accent-btn text-sm">
                     <Rocket size={15} />
                     Live

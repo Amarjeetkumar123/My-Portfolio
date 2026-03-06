@@ -8,7 +8,7 @@ export default function Experience() {
   return (
     <section id="experience" className="section-shell">
       <Motion.div
-        className="container-shell space-y-10"
+        className="container-shell space-y-12"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
@@ -19,9 +19,9 @@ export default function Experience() {
           Building production systems across AI calling, CRM automation, and subscription workflows.
         </Motion.p>
 
-        <Motion.div variants={fadeUp} className="grid gap-6 md:grid-cols-2">
+        <Motion.div variants={fadeUp} className="grid gap-8 md:grid-cols-2">
           {experiences.map((exp) => (
-            <article key={`${exp.company}-${exp.role}`} className="glass-card p-6 md:p-7">
+            <article key={`${exp.company}-${exp.role}`} className="glass-card border-l-[3px] border-l-[var(--gold)] p-7 md:p-8">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="chip mb-3">Professional Experience</p>
@@ -33,18 +33,18 @@ export default function Experience() {
                 </div>
               </div>
 
-              <div className="mt-4 space-y-2 text-xs uppercase tracking-[0.12em] text-gray-500">
-                <p className="flex items-center gap-2">
+              <div className="mt-5 space-y-2.5 text-xs uppercase tracking-[0.12em] text-gray-500">
+                <p className="flex items-center gap-2.5">
                   <CalendarDays size={14} />
                   {exp.duration}
                 </p>
-                <p className="flex items-center gap-2">
+                <p className="flex items-center gap-2.5">
                   <MapPinned size={14} />
                   {exp.location}
                 </p>
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-6 flex flex-wrap gap-2.5">
                 {exp.tech.map((tech) => (
                   <span key={tech} className="chip">
                     {tech}
@@ -52,7 +52,7 @@ export default function Experience() {
                 ))}
               </div>
 
-              <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-300 marker:text-[var(--gold)]">
+              <ul className="mt-6 list-disc space-y-3 pl-5 text-sm leading-7 text-gray-300 marker:text-[var(--gold)]">
                 {exp.points.map((point) => (
                   <li key={point}>{point}</li>
                 ))}

@@ -37,7 +37,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section-shell">
-      <div className="container-shell space-y-10">
+      <div className="container-shell space-y-12">
         <Toaster
           position="top-right"
           toastOptions={{
@@ -72,15 +72,15 @@ export default function Contact() {
           Open to software engineering opportunities, product collaboration, and AI-focused roles.
         </Motion.p>
 
-        <div className="grid gap-6 lg:grid-cols-[1fr,1.5fr]">
+        <div className="grid gap-8 lg:grid-cols-[1fr,1.5fr]">
           <Motion.article
             initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="glass-card space-y-4 p-6"
+            className="glass-card space-y-5 p-7"
           >
-            <h3 className="text-lg font-semibold">Let&apos;s talk</h3>
+            <h3 className="text-xl font-semibold">Let&apos;s talk</h3>
 
             <p className="flex items-center gap-3 text-sm text-gray-300">
               <Phone className="text-[var(--gold)]" size={17} />
@@ -97,7 +97,7 @@ export default function Contact() {
               {profile.location}
             </p>
 
-            <div className="pt-2 flex items-center gap-3">
+            <div className="pt-3 flex items-center gap-4">
               <a
                 href={profile.socials.linkedin}
                 target="_blank"
@@ -126,9 +126,9 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.3 }}
             viewport={{ once: true }}
-            className="glass-card space-y-4 p-6"
+            className="glass-card space-y-5 p-7"
           >
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-5 md:grid-cols-2">
               <div>
                 <label htmlFor="user_name" className="sr-only">Name</label>
                 <Motion.input
@@ -136,7 +136,7 @@ export default function Contact() {
                   id="user_name"
                   name="user_name"
                   placeholder="Name"
-                  className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3 text-white outline-none transition focus:border-[var(--gold)]"
+                  className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3.5 text-white shadow-inner shadow-black/20 outline-none transition focus:border-[var(--gold)] focus:shadow-[0_0_0_1px_rgba(201,163,58,0.3)]"
                   required
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -151,7 +151,7 @@ export default function Contact() {
                   id="user_email"
                   name="user_email"
                   placeholder="Email"
-                  className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3 text-white outline-none transition focus:border-[var(--gold)]"
+                  className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3.5 text-white shadow-inner shadow-black/20 outline-none transition focus:border-[var(--gold)] focus:shadow-[0_0_0_1px_rgba(201,163,58,0.3)]"
                   required
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -168,7 +168,7 @@ export default function Contact() {
                 id="subject"
                 name="subject"
                 placeholder="Subject"
-                className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3 text-white outline-none transition focus:border-[var(--gold)]"
+                className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3.5 text-white shadow-inner shadow-black/20 outline-none transition focus:border-[var(--gold)] focus:shadow-[0_0_0_1px_rgba(201,163,58,0.3)]"
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, delay: 0.5 }}
@@ -183,7 +183,7 @@ export default function Contact() {
                 name="message"
                 placeholder="Message"
                 rows="5"
-                className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3 text-white outline-none transition focus:border-[var(--gold)]"
+                className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3.5 text-white shadow-inner shadow-black/20 outline-none transition focus:border-[var(--gold)] focus:shadow-[0_0_0_1px_rgba(201,163,58,0.3)]"
                 required
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -195,7 +195,7 @@ export default function Contact() {
             <Motion.button
               type="submit"
               disabled={loading}
-              className="accent-btn w-full disabled:cursor-not-allowed disabled:opacity-70"
+              className="accent-btn w-full py-3.5 disabled:cursor-not-allowed disabled:opacity-70"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.6 }}
@@ -212,7 +212,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
           viewport={{ once: true }}
-          className="rounded-xl border border-[rgba(201,163,58,0.25)] bg-[rgba(201,163,58,0.08)] px-4 py-4 text-center text-sm text-gray-200"
+          className="mt-4 rounded-xl border border-[rgba(201,163,58,0.25)] bg-[rgba(201,163,58,0.08)] px-4 py-5 text-center text-sm text-gray-200"
         >
           Portfolio designed and developed by <span className="font-semibold text-[var(--gold)]">{profile.name}</span>
         </Motion.footer>

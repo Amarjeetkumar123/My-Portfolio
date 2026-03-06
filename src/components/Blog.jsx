@@ -8,7 +8,7 @@ export default function Blogs() {
   return (
     <section id="blogs" className="section-shell">
       <Motion.div
-        className="container-shell space-y-10"
+        className="container-shell space-y-12"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
@@ -19,16 +19,20 @@ export default function Blogs() {
           Technical notes I am preparing around real-time AI systems, retrieval workflows, and scalable automation.
         </Motion.p>
 
-        <Motion.div variants={fadeUp} className="grid gap-6 md:grid-cols-3">
+        <Motion.div variants={fadeUp} className="grid gap-8 md:grid-cols-3">
           {writings.map((item) => (
-            <article key={item.title} className="glass-card flex h-full flex-col p-6">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(201,163,58,0.35)] bg-[rgba(201,163,58,0.12)] text-[var(--gold)]">
-                <BookOpen size={18} />
+            <article key={item.title} className="glass-card flex h-full flex-col p-7">
+              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(201,163,58,0.35)] bg-[rgba(201,163,58,0.12)] text-[var(--gold)]">
+                <BookOpen size={20} />
               </div>
-              <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 flex-1 text-sm leading-7 text-gray-300">{item.desc}</p>
-              <div className="mt-5">
-                <span className="chip">{item.status}</span>
+              <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+              <p className="mt-4 flex-1 text-sm leading-7 text-gray-300">{item.desc}</p>
+              <div className="mt-6">
+                <span className={`chip ${
+                  item.status === "In Progress"
+                    ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
+                    : ""
+                }`}>{item.status}</span>
               </div>
             </article>
           ))}

@@ -7,6 +7,13 @@ const navItems = ["about", "experience", "skills", "projects", "blogs", "contact
 export default function Header() {
   const [activeSection, setActiveSection] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const updateFromHash = () => {
@@ -72,14 +79,14 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="site-header fixed inset-x-0 top-0 z-40 px-4 py-2">
+    <header className={`site-header fixed inset-x-0 top-0 z-40 px-4 transition-all duration-300 ${scrolled ? "py-1" : "py-2"}`}>
       <div className="container-shell">
-        <div className="top-nav-shell flex items-center justify-between gap-4 px-4 py-2.5 md:px-6">
+        <div className={`top-nav-shell flex items-center justify-between gap-4 px-4 md:px-6 transition-all duration-300 ${scrolled ? "py-1.5" : "py-2.5"}`}>
           <a href="#hero" className="text-sm font-semibold tracking-[0.2em] text-white/90 uppercase">
             {profile.name}
           </a>
 
-          <nav className="hidden items-center gap-5 md:flex">
+          <nav className="hidden items-center gap-6 md:flex">
             {navItems.map((item) => {
               const isActive = activeSection === item;
 
@@ -156,8 +163,17 @@ export default function Header() {
           </div>
         </div>
 
+        {scrolled && (
+          <div className="mx-auto h-[1px] w-3/4 bg-gradient-to-r from-transparent via-[rgba(201,163,58,0.4)] to-transparent" />
+        )}
+
         {mobileOpen && (
-          <nav className="top-nav-shell mt-2 flex flex-col gap-2 px-4 py-4 md:hidden">
+          <>
+            <div
+              className="fixed inset-0 z-30 bg-black/60 backdrop-blur-sm md:hidden"
+              onClick={() => setMobileOpen(false)}
+            />
+            <nav className="top-nav-shell relative z-40 mt-2 flex flex-col gap-2 px-4 py-4 md:hidden">
             {navItems.map((item) => {
               const isActive = activeSection === item;
               return (
@@ -179,6 +195,7 @@ export default function Header() {
               );
             })}
           </nav>
+          </>
         )}
       </div>
     </header>

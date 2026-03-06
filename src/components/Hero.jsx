@@ -51,15 +51,15 @@ export default function Hero() {
       <div className="relative h-screen min-h-[760px] overflow-hidden px-4 text-center">
         <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2">
           <div className="relative flex h-[580px] w-[580px] items-center justify-center sm:h-[800px] sm:w-[800px]">
-            <div className="absolute h-[140px] w-[140px] rounded-full border border-white animate-ping sm:h-[200px] sm:w-[200px]" />
-            <div className="absolute h-[220px] w-[220px] rounded-full border border-[#333] sm:h-[300px] sm:w-[300px]" />
-            <div className="absolute h-[360px] w-[360px] rounded-full border border-[#333] sm:h-[500px] sm:w-[500px]" />
-            <div className="absolute h-[470px] w-[470px] rounded-full border border-[#F7AB0A] opacity-20 animate-pulse sm:h-[650px] sm:w-[650px]" />
-            <div className="absolute h-[580px] w-[580px] rounded-full border border-[#333] sm:h-[800px] sm:w-[800px]" />
+            <div className="hero-ring absolute h-[140px] w-[140px] rounded-full border border-white/60 sm:h-[200px] sm:w-[200px]" style={{ animationDelay: "0.1s" }} />
+            <div className="hero-ring absolute h-[220px] w-[220px] rounded-full border border-[#333] sm:h-[300px] sm:w-[300px]" style={{ animationDelay: "0.25s" }} />
+            <div className="hero-ring absolute h-[360px] w-[360px] rounded-full border border-[#333] sm:h-[500px] sm:w-[500px]" style={{ animationDelay: "0.4s" }} />
+            <div className="hero-ring absolute h-[470px] w-[470px] rounded-full border border-[#F7AB0A] opacity-20 sm:h-[650px] sm:w-[650px]" style={{ animationDelay: "0.55s" }} />
+            <div className="hero-ring absolute h-[580px] w-[580px] rounded-full border border-[#333] sm:h-[800px] sm:w-[800px]" style={{ animationDelay: "0.7s" }} />
 
             <img
               src={avatar}
-              className="relative z-10 h-24 w-24 rounded-full object-cover ring-2 ring-[rgba(201,163,58,0.45)] sm:h-32 sm:w-32"
+              className="hero-avatar relative z-10 h-28 w-28 rounded-full object-cover ring-2 ring-[rgba(201,163,58,0.45)] shadow-[0_0_40px_rgba(201,163,58,0.2)] sm:h-36 sm:w-36"
               alt="Amarjeet Kumar"
               height="200"
               width="200"
@@ -68,20 +68,20 @@ export default function Hero() {
         </div>
 
         <div className="absolute left-1/2 top-1/2 z-20 w-full max-w-5xl -translate-x-1/2 translate-y-[calc(var(--hero-content-offset)-40px)] px-4">
-          <p className="pb-2 text-xs uppercase tracking-[1em] text-gray-500 md:text-sm">
+          <p className="pb-3 text-sm uppercase tracking-[0.8em] text-gray-400 md:text-base md:tracking-[1em]">
             {profile.role}
           </p>
-          <h1 className="mx-auto max-w-none text-[clamp(0.95rem,4.2vw,1.875rem)] font-semibold leading-tight md:text-5xl lg:text-6xl">
+          <h1 className="mx-auto max-w-none text-[clamp(1.1rem,4.2vw,1.875rem)] font-semibold leading-tight md:text-5xl lg:text-6xl">
             {displayed}
             <span className="animate-blink">|</span>
           </h1>
 
-          <div className="mt-12  pt-5 flex flex-col items-center justify-center gap-5 sm:mt-14 sm:flex-row sm:gap-8">
-            <a href={profile.resumeUrl} target="_blank" rel="noreferrer" className="accent-btn min-w-44 mx-7">
+          <div className="mt-14 flex flex-col items-center justify-center gap-5 sm:mt-16 sm:flex-row sm:gap-10">
+            <a href={profile.resumeUrl} target="_blank" rel="noreferrer" className="accent-btn min-w-48 text-sm">
               <Download className="h-4 w-4" />
               View Resume
             </a>
-            <a href="#contact" className="ghost-btn min-w-44 mx-7">
+            <a href="#contact" className="ghost-btn min-w-48 text-sm">
               <MessageCircle className="h-4 w-4" />
               Let&apos;s Connect
             </a>
