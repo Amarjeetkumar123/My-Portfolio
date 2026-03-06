@@ -15,6 +15,11 @@ html,
 body,
 #root {
   height: 100%;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 html {
@@ -174,4 +179,16 @@ a {
   .section-title {
     letter-spacing: 0.24em;
   }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

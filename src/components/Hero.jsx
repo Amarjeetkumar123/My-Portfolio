@@ -31,6 +31,7 @@ export default function Hero() {
     if (isDeleting && index === 0) {
       setIsDeleting(false);
       setTextIndex((prev) => (prev + 1) % texts.length);
+      return;
     }
 
     const timeout = setTimeout(() => {
@@ -70,7 +71,7 @@ export default function Hero() {
           <p className="pb-2 text-xs uppercase tracking-[1em] text-gray-500 md:text-sm">
             {profile.role}
           </p>
-          <h1 className="mx-auto max-w-none whitespace-nowrap text-[clamp(0.95rem,4.2vw,1.875rem)] font-semibold leading-tight md:text-5xl lg:text-6xl">
+          <h1 className="mx-auto max-w-none text-[clamp(0.95rem,4.2vw,1.875rem)] font-semibold leading-tight md:text-5xl lg:text-6xl">
             {displayed}
             <span className="animate-blink">|</span>
           </h1>

@@ -19,7 +19,10 @@ import {
   Waypoints,
   Zap,
 } from "lucide-react";
+import { motion as Motion } from "framer-motion";
 import { skills } from "../data/portfolioData";
+
+const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
 const skillIcons = {
   BookOpenCheck,
@@ -45,13 +48,19 @@ const skillIcons = {
 export default function Skills() {
   return (
     <section id="skills" className="section-shell">
-      <div className="container-shell space-y-10">
-        <h2 className="section-title">Skills</h2>
-        <p className="section-subtitle">
+      <Motion.div
+        className="container-shell space-y-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ staggerChildren: 0.08 }}
+      >
+        <Motion.h2 variants={fadeUp} className="section-title">Skills</Motion.h2>
+        <Motion.p variants={fadeUp} className="section-subtitle">
           Core technologies I use to build, ship, and scale modern products.
-        </p>
+        </Motion.p>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <Motion.div variants={fadeUp} className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {skills.map((skill) => {
             const Icon = skillIcons[skill.icon] ?? Sparkles;
 
@@ -73,11 +82,11 @@ export default function Skills() {
               </article>
             );
           })}
-        </div>
-        <div className="flex justify-center">
+        </Motion.div>
+        <Motion.div variants={fadeUp} className="flex justify-center">
           <span className="chip">18+ tools across backend, AI, infra, and UI</span>
-        </div>
-      </div>
+        </Motion.div>
+      </Motion.div>
     </section>
   );
 }

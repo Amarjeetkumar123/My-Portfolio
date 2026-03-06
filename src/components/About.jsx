@@ -1,22 +1,34 @@
 import { Award, GraduationCap, MapPin } from "lucide-react";
+import { motion as Motion } from "framer-motion";
 import avatar from "../assets/avatar.png";
 import { award, education, highlights, profile } from "../data/portfolioData";
+
+const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
 export default function About() {
   return (
     <section id="about" className="section-shell">
-      <div className="container-shell space-y-10">
-        <h2 className="section-title">About Me</h2>
-        <p className="section-subtitle">
+      <Motion.div
+        className="container-shell space-y-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ staggerChildren: 0.15 }}
+      >
+        <Motion.h2 variants={fadeUp} className="section-title">About Me</Motion.h2>
+        <Motion.p variants={fadeUp} className="section-subtitle">
           Backend-first engineer with a full-stack mindset, focused on reliable systems, clear APIs, and measurable product outcomes.
-        </p>
+        </Motion.p>
 
-        <div className="grid gap-6 lg:grid-cols-[1.1fr,1.5fr]">
+        <Motion.div variants={fadeUp} className="grid gap-6 lg:grid-cols-[1.1fr,1.5fr]">
           <article className="glass-card p-6">
             <div className="flex flex-col items-center text-center">
               <img
                 src={avatar}
                 alt={profile.name}
+                width={160}
+                height={160}
+                loading="lazy"
                 className="h-40 w-40 rounded-full object-cover ring-4 ring-[rgba(201,163,58,0.35)]"
               />
               <h3 className="mt-4 text-2xl font-semibold">{profile.name}</h3>
@@ -69,8 +81,8 @@ export default function About() {
               ))}
             </div>
           </article>
-        </div>
-      </div>
+        </Motion.div>
+      </Motion.div>
     </section>
   );
 }

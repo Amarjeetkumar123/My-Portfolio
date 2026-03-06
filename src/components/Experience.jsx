@@ -1,16 +1,25 @@
 import { BriefcaseBusiness, CalendarDays, MapPinned } from "lucide-react";
+import { motion as Motion } from "framer-motion";
 import { experiences } from "../data/portfolioData";
+
+const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
 export default function Experience() {
   return (
     <section id="experience" className="section-shell">
-      <div className="container-shell space-y-10">
-        <h2 className="section-title">Experience</h2>
-        <p className="section-subtitle">
+      <Motion.div
+        className="container-shell space-y-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ staggerChildren: 0.15 }}
+      >
+        <Motion.h2 variants={fadeUp} className="section-title">Experience</Motion.h2>
+        <Motion.p variants={fadeUp} className="section-subtitle">
           Building production systems across AI calling, CRM automation, and subscription workflows.
-        </p>
+        </Motion.p>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <Motion.div variants={fadeUp} className="grid gap-6 md:grid-cols-2">
           {experiences.map((exp) => (
             <article key={`${exp.company}-${exp.role}`} className="glass-card p-6 md:p-7">
               <div className="flex items-start justify-between gap-4">
@@ -50,8 +59,8 @@ export default function Experience() {
               </ul>
             </article>
           ))}
-        </div>
-      </div>
+        </Motion.div>
+      </Motion.div>
     </section>
   );
 }

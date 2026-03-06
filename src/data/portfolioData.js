@@ -53,39 +53,6 @@ export const experiences = [
   },
 ];
 
-export const skillGroups = [
-  {
-    title: "Languages",
-    items: ["JavaScript", "TypeScript", "Python", "C/C++"],
-  },
-  {
-    title: "Backend & AI",
-    items: [
-      "Node.js",
-      "Express.js",
-      "REST APIs",
-      "LangChain",
-      "LLMs",
-      "RAG",
-      "Embeddings",
-      "JWT",
-      "WebSockets",
-    ],
-  },
-  {
-    title: "Frontend",
-    items: ["React.js", "Redux", "Tailwind CSS", "Bootstrap", "HTML5", "CSS3"],
-  },
-  {
-    title: "Databases",
-    items: ["MongoDB", "MySQL", "Redis", "PostgreSQL"],
-  },
-  {
-    title: "Tools",
-    items: ["Docker", "Docker Compose", "Git", "GitHub", "GitLab", "Swagger", "Jest", "Linux"],
-  },
-];
-
 export const skills = [
   { name: "JavaScript", icon: "Code2", detail: "App logic and browser runtime" },
   { name: "TypeScript", icon: "FileCode2", detail: "Type-safe scalable codebases" },
@@ -130,7 +97,7 @@ export const projects = [
       "Contributed across CRM, team collaboration, and AI calling modules. Built REST APIs for lead management and workflow automation with payment integrations.",
     tech: ["Node.js", "Python", "MongoDB", "PostgreSQL", "REST APIs", "Razorpay", "Pabbly"],
     live: "https://pronnel.com",
-    code: "https://github.com/Amarjeetkumar123",
+    code: null,
   },
 ];
 
@@ -138,17 +105,17 @@ export const writings = [
   {
     title: "Designing Reliable Real-Time AI Calling Systems",
     desc: "Architecture patterns for telephony, STT/TTS provider failover, and low-latency conversation handling.",
-    status: "Coming Soon",
+    status: "In Progress",
   },
   {
     title: "Instruction-Driven Agents with LangChain + RAG",
     desc: "A practical approach to building context-aware assistants with retrieval pipelines and vector databases.",
-    status: "Coming Soon",
+    status: "In Progress",
   },
   {
     title: "Production Automation in CRM Workflows",
     desc: "Lessons from scaling lead scoring, task automation, and billing pipelines for daily high-volume events.",
-    status: "Coming Soon",
+    status: "Planned",
   },
 ];
 

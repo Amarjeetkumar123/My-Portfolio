@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Code2, FileText, Github, Linkedin, Mail } from "lucide-react";
+import { Code2, FileText, Github, Linkedin, Mail, Menu, X } from "lucide-react";
 import { profile } from "../data/portfolioData";
 
 const navItems = ["about", "experience", "skills", "projects", "blogs", "contact"];
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const updateFromHash = () => {
@@ -144,8 +145,41 @@ export default function Header() {
             >
               <Mail size={18} />
             </a>
+
+            <button
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              className="rounded-full p-2 text-gray-200 transition hover:bg-white/5 hover:text-[var(--gold)] md:hidden"
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
         </div>
+
+        {mobileOpen && (
+          <nav className="top-nav-shell mt-2 flex flex-col gap-2 px-4 py-4 md:hidden">
+            {navItems.map((item) => {
+              const isActive = activeSection === item;
+              return (
+                <a
+                  key={item}
+                  href={`#${item}`}
+                  onClick={() => {
+                    setActiveSection(item);
+                    setMobileOpen(false);
+                  }}
+                  className={`rounded-lg border px-4 py-2.5 text-sm uppercase tracking-[0.18em] transition-all duration-200 ${
+                    isActive
+                      ? "border-[rgba(201,163,58,0.6)] bg-[rgba(201,163,58,0.2)] text-[var(--gold)]"
+                      : "border-transparent text-gray-300 hover:border-[rgba(201,163,58,0.45)] hover:bg-[rgba(201,163,58,0.12)] hover:text-[var(--gold)]"
+                  }`}
+                >
+                  {item}
+                </a>
+              );
+            })}
+          </nav>
+        )}
       </div>
     </header>
   );

@@ -84,12 +84,12 @@ export default function Contact() {
 
             <p className="flex items-center gap-3 text-sm text-gray-300">
               <Phone className="text-[var(--gold)]" size={17} />
-              <a href={`tel:${profile.phone.replace(/\s+/g, "")}`}>{profile.phone}</a>
+              <a href={`tel:${profile.phone.replace(/\s+/g, "")}`} aria-label="Phone number">{profile.phone}</a>
             </p>
 
             <p className="flex items-center gap-3 text-sm text-gray-300 break-all">
               <Mail className="text-[var(--gold)]" size={17} />
-              <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              <a href={`mailto:${profile.email}`} aria-label="Email address">{profile.email}</a>
             </p>
 
             <p className="flex items-center gap-3 text-sm text-gray-300">
@@ -102,6 +102,7 @@ export default function Contact() {
                 href={profile.socials.linkedin}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="LinkedIn profile"
                 className="ghost-btn text-sm"
               >
                 <Linkedin size={15} /> LinkedIn
@@ -110,6 +111,7 @@ export default function Contact() {
                 href={profile.socials.github}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="GitHub profile"
                 className="ghost-btn text-sm"
               >
                 <Github size={15} /> GitHub
@@ -127,52 +129,68 @@ export default function Contact() {
             className="glass-card space-y-4 p-6"
           >
             <div className="grid gap-4 md:grid-cols-2">
+              <div>
+                <label htmlFor="user_name" className="sr-only">Name</label>
+                <Motion.input
+                  type="text"
+                  id="user_name"
+                  name="user_name"
+                  placeholder="Name"
+                  className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3 text-white outline-none transition focus:border-[var(--gold)]"
+                  required
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.45, delay: 0.4 }}
+                  viewport={{ once: true }}
+                />
+              </div>
+              <div>
+                <label htmlFor="user_email" className="sr-only">Email</label>
+                <Motion.input
+                  type="email"
+                  id="user_email"
+                  name="user_email"
+                  placeholder="Email"
+                  className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3 text-white outline-none transition focus:border-[var(--gold)]"
+                  required
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.45, delay: 0.45 }}
+                  viewport={{ once: true }}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="subject" className="sr-only">Subject</label>
               <Motion.input
                 type="text"
-                name="user_name"
-                placeholder="Name"
-                className="rounded-lg border border-white/10 bg-[var(--panel)] p-3 text-white outline-none transition focus:border-[var(--gold)]"
-                required
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.45, delay: 0.4 }}
-                viewport={{ once: true }}
-              />
-              <Motion.input
-                type="email"
-                name="user_email"
-                placeholder="Email"
-                className="rounded-lg border border-white/10 bg-[var(--panel)] p-3 text-white outline-none transition focus:border-[var(--gold)]"
-                required
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.45, delay: 0.45 }}
+                id="subject"
+                name="subject"
+                placeholder="Subject"
+                className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3 text-white outline-none transition focus:border-[var(--gold)]"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: 0.5 }}
                 viewport={{ once: true }}
               />
             </div>
 
-            <Motion.input
-              type="text"
-              name="subject"
-              placeholder="Subject"
-              className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3 text-white outline-none transition focus:border-[var(--gold)]"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.5 }}
-              viewport={{ once: true }}
-            />
-
-            <Motion.textarea
-              name="message"
-              placeholder="Message"
-              rows="5"
-              className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3 text-white outline-none transition focus:border-[var(--gold)]"
-              required
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.55 }}
-              viewport={{ once: true }}
-            />
+            <div>
+              <label htmlFor="message" className="sr-only">Message</label>
+              <Motion.textarea
+                id="message"
+                name="message"
+                placeholder="Message"
+                rows="5"
+                className="w-full rounded-lg border border-white/10 bg-[var(--panel)] p-3 text-white outline-none transition focus:border-[var(--gold)]"
+                required
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: 0.55 }}
+                viewport={{ once: true }}
+              />
+            </div>
 
             <Motion.button
               type="submit"
